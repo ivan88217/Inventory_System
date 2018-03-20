@@ -22,7 +22,7 @@ namespace Inventory_System.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var inventoryContext = _context.Products.Include(p => p.BatchNumber).Include(p => p.ManuFactor).Include(p => p.WareHouse);
+            var inventoryContext = _context.Products.Include(p => p.BatchNumber).Include(p => p.ManuFactor).Include(p => p.WareHouse).Include(p=>p.Category);
             return View(await inventoryContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace Inventory_System.Controllers
 
             var product = await _context.Products
                 .Include(p => p.BatchNumber)
+                .Include(p => p.Category)
                 .Include(p => p.ManuFactor)
                 .Include(p => p.WareHouse)
                 .SingleOrDefaultAsync(m => m.ProductID == id);
@@ -50,9 +51,10 @@ namespace Inventory_System.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "ID");
-            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "ID");
-            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "ID");
+            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "BatchNum");
+            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "Name");
+            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "Name");
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name");
             return View();
         }
 
@@ -61,7 +63,7 @@ namespace Inventory_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Name,CategorryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductID,Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -69,9 +71,10 @@ namespace Inventory_System.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "ID", product.BatchNumberID);
-            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "ID", product.ManuFactorID);
-            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "ID", product.WareHouseID);
+            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "BatchNum", product.BatchNumberID);
+            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "Name", product.ManuFactorID);
+            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "Name", product.WareHouseID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 
@@ -88,9 +91,10 @@ namespace Inventory_System.Controllers
             {
                 return NotFound();
             }
-            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "ID", product.BatchNumberID);
-            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "ID", product.ManuFactorID);
-            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "ID", product.WareHouseID);
+            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "BatchNum", product.BatchNumberID);
+            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "Name", product.ManuFactorID);
+            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "Name", product.WareHouseID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 
@@ -99,7 +103,7 @@ namespace Inventory_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductID,Name,CategorryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
         {
             if (id != product.ProductID)
             {
@@ -126,9 +130,10 @@ namespace Inventory_System.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "ID", product.BatchNumberID);
-            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "ID", product.ManuFactorID);
-            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "ID", product.WareHouseID);
+            ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "BatchNum", product.BatchNumberID);
+            ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "Name", product.ManuFactorID);
+            ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "Name", product.WareHouseID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 

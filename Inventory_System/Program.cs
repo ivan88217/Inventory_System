@@ -23,7 +23,6 @@ namespace Inventory_System
                 var services = scope.ServiceProvider;
                 try
                 {
-                    Console.WriteLine(1);
                     var context = services.GetRequiredService<InventoryContext>();
                     DbInitializer.Initialize(context);
                 }

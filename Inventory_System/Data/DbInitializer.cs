@@ -21,27 +21,27 @@ namespace Inventory_System.Data
             {
                 new Category
                 {
-                    ID=1,Name="A4"
+                    Name="A4"
                 },
                 new Category
                 {
-                    ID=2,Name="A3"
+                    Name="A3"
                 },
                 new Category
                 {
-                    ID=3,Name="Ink"
+                    Name="Ink"
                 },
                 new Category
                 {
-                    ID=4,Name="Printer"
+                    Name="Printer"
                 },
                 new Category
                 {
-                    ID=5,Name="Scanner"
+                    Name="Scanner"
                 },
                 new Category
                 {
-                    ID=6,Name="Notebook"
+                    Name="Notebook"
                 }
             };
             foreach(Category c in categories)
@@ -55,23 +55,23 @@ namespace Inventory_System.Data
             {
                 new ManuFactor
                 {
-                    ID=1,Name="HP"
+                    Name="HP"
                 },
                 new ManuFactor
                 {
-                    ID=2,Name="Epson"
+                    Name="Epson"
                 },
                 new ManuFactor
                 {
-                    ID=3,Name="DoubleA"
+                    Name="DoubleA"
                 },
                 new ManuFactor
                 {
-                    ID=4,Name="Acer"
+                    Name="Acer"
                 },
                 new ManuFactor
                 {
-                    ID=5,Name="Asus"
+                    Name="Asus"
                 }
             };
             foreach (ManuFactor m in ManuFactors)
@@ -85,23 +85,23 @@ namespace Inventory_System.Data
             {
                 new WareHouse
                 {
-                    ID=1,Name="Taipei"
+                    Name="Taipei",Location="中正區"
                 },
                 new WareHouse
                 {
-                    ID=2,Name="Taichung"
+                    Name="Taichung",Location="南屯區"
                 },
                 new WareHouse
                 {
-                    ID=3,Name="Tainan"
+                    Name="Tainan",Location="南區"
                 },
                 new WareHouse
                 {
-                    ID=4,Name="Kaosuong"
+                    Name="Kaosuong",Location="林鳳營"
                 },
                 new WareHouse
                 {
-                    ID=5,Name="New Taipei"
+                    Name="New Taipei",Location="板橋區"
                 }
             };
             foreach(WareHouse w in WareHouses)
@@ -115,27 +115,27 @@ namespace Inventory_System.Data
             {
                 new BatchNumber
                 {
-                    ID=1060305,In_Date=DateTime.Parse("2017-03-05"),Expired_Date=DateTime.Parse("2020-03-05")
+                    BatchNum="1060305",In_Date=DateTime.Parse("2017-03-05"),Expired_Date=DateTime.Parse("2020-03-05")
                 },
                 new BatchNumber
                 {
-                    ID=1060306,In_Date=DateTime.Parse("2017-03-06"),Expired_Date=DateTime.Parse("2020-03-06")
+                    BatchNum="1060306",In_Date=DateTime.Parse("2017-03-06"),Expired_Date=DateTime.Parse("2020-03-06")
                 },
                 new BatchNumber
                 {
-                    ID=1060307,In_Date=DateTime.Parse("2017-03-07"),Expired_Date=DateTime.Parse("2020-03-07")
+                    BatchNum="1060307",In_Date=DateTime.Parse("2017-03-07"),Expired_Date=DateTime.Parse("2020-03-07")
                 },
                 new BatchNumber
                 {
-                    ID=1060308,In_Date=DateTime.Parse("2017-03-08"),Expired_Date=DateTime.Parse("2020-03-08")
+                    BatchNum="1060308",In_Date=DateTime.Parse("2017-03-08"),Expired_Date=DateTime.Parse("2020-03-08")
                 },
                 new BatchNumber
                 {
-                    ID=1060309,In_Date=DateTime.Parse("2017-03-09"),Expired_Date=DateTime.Parse("2020-03-09")
+                    BatchNum="1060309",In_Date=DateTime.Parse("2017-03-09"),Expired_Date=DateTime.Parse("2020-03-09")
                 },
                 new BatchNumber
                 {
-                    ID=1060310,In_Date=DateTime.Parse("2017-03-10"),Expired_Date=DateTime.Parse("2020-03-10")
+                    BatchNum="1060310",In_Date=DateTime.Parse("2017-03-10"),Expired_Date=DateTime.Parse("2020-03-10")
                 }
             };
             foreach(BatchNumber b in BatchNum)
@@ -149,35 +149,35 @@ namespace Inventory_System.Data
             {
                 new Product
                 {
-                    ProductID=1,Name="Epson_Printer",CategoryID=4,BatchNumberID=1060310,ManuFactorID=2,WareHouseID=1,PartNumber=0040020310
+                    Name="Epson_Printer",CategoryID=4,BatchNumberID=1060310,ManuFactorID=2,WareHouseID=1,PartNumber=0040020310
                 },
                 new Product
                 {
-                    ProductID=2,Name="HP_Printer",CategoryID=4,BatchNumberID=1060305,ManuFactorID=1,WareHouseID=5,PartNumber=0040010305
+                    Name="HP_Printer",CategoryID=4,BatchNumberID=1060305,ManuFactorID=1,WareHouseID=5,PartNumber=0040010305
                 },
                 new Product
                 {
-                    ProductID=3,Name="Epson_Ink",CategoryID=3,BatchNumberID=1060308,ManuFactorID=2,WareHouseID=2,PartNumber=0030020308
+                    Name="Epson_Ink",CategoryID=3,BatchNumberID=1060308,ManuFactorID=2,WareHouseID=2,PartNumber=0030020308
                 },
                 new Product
                 {
-                    ProductID=4,Name="Epson_Scanner",CategoryID=5,BatchNumberID=1060307,ManuFactorID=2,WareHouseID=3,PartNumber=0050020307
+                    Name="Epson_Scanner",CategoryID=5,BatchNumberID=1060307,ManuFactorID=2,WareHouseID=3,PartNumber=0050020307
                 },
                 new Product
                 {
-                    ProductID=5,Name="DoubleA_A4",CategoryID=1,BatchNumberID=1060307,ManuFactorID=3,WareHouseID=1,PartNumber=0010030307
+                    Name="DoubleA_A4",CategoryID=1,BatchNumberID=1060307,ManuFactorID=3,WareHouseID=1,PartNumber=0010030307
                 },
                 new Product
                 {
-                    ProductID=6,Name="DoubleA_A3",CategoryID=2,BatchNumberID=1060306,ManuFactorID=3,WareHouseID=1,PartNumber=0020030306
+                    Name="DoubleA_A3",CategoryID=2,BatchNumberID=1060306,ManuFactorID=3,WareHouseID=1,PartNumber=0020030306
                 },
                 new Product
                 {
-                    ProductID=7,Name="Acer_NB",CategoryID=5,BatchNumberID=1060308,ManuFactorID=4,WareHouseID=5,PartNumber=0050040308
+                    Name="Acer_NB",CategoryID=5,BatchNumberID=1060308,ManuFactorID=4,WareHouseID=5,PartNumber=0050040308
                 },
                 new Product
                 {
-                    ProductID=8,Name="Asus_NB",CategoryID=5,BatchNumberID=1060309,ManuFactorID=5,WareHouseID=4,PartNumber=0050050309
+                    Name="Asus_NB",CategoryID=5,BatchNumberID=1060309,ManuFactorID=5,WareHouseID=4,PartNumber=0050050309
                 }
             };
             foreach(Product p in Products)
