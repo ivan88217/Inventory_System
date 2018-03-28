@@ -63,14 +63,41 @@ namespace Inventory_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
+        public async Task<IActionResult> Create([Bind("Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID,TotalNumber")] Product product)
         {
-            if (ModelState.IsValid)
+            
+            if (Request.Form["chk"] == "1")
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                for (int i = 0; i < product.TotalNumber; i++)
+                {
+                    Product pdt = new Product()
+                    {
+                        Name = product.Name,
+                        CategoryID = product.CategoryID,
+                        ManuFactorID=product.ManuFactorID,
+                        BatchNumberID=product.BatchNumberID,
+                        PartNumber=product.PartNumber+i,
+                        WareHouseID=product.WareHouseID,
+                        TotalNumber=product.TotalNumber
+                    };
+                    if (ModelState.IsValid)
+                    {
+                        _context.Add(pdt);
+                        await _context.SaveChangesAsync();
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(product);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            
             ViewData["BatchNumberID"] = new SelectList(_context.BatchNumbers, "ID", "BatchNum", product.BatchNumberID);
             ViewData["ManuFactorID"] = new SelectList(_context.ManuFactors, "ID", "Name", product.ManuFactorID);
             ViewData["WareHouseID"] = new SelectList(_context.WareHouses, "ID", "Name", product.WareHouseID);
@@ -103,7 +130,7 @@ namespace Inventory_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductID,Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,Name,CategoryID,ManuFactorID,BatchNumberID,PartNumber,WareHouseID,TotalNumber")] Product product)
         {
             if (id != product.ProductID)
             {

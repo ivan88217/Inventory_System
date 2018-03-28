@@ -17,10 +17,10 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.CategoryID)
+            @Html.DisplayNameFor(model => model.Category)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.CategoryID)
+            @Html.DisplayFor(model => model.Category.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PartNumber)
@@ -32,19 +32,25 @@
             @Html.DisplayNameFor(model => model.BatchNumber)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.BatchNumber.ID)
+            @Html.DisplayFor(model => model.BatchNumber.BatchNum)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ManuFactor)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ManuFactor.ID)
+            @Html.DisplayFor(model => model.ManuFactor.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.WareHouse)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.WareHouse.ID)
+            @Html.DisplayFor(model => model.WareHouse.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalNumber)
         </dd>
     </dl>
 </div>

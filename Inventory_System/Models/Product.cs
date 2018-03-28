@@ -17,6 +17,8 @@ namespace Inventory_System.Models
         [Display(Name = "料號")]
         public int PartNumber { get; set; }
         public int WareHouseID { get; set; }
+        [Display(Name ="數量")]
+        public int TotalNumber { get; set; }
 
         [Display(Name = "類別")]
         public Category Category { get; set; }
@@ -26,6 +28,6 @@ namespace Inventory_System.Models
         public BatchNumber BatchNumber { get; set; }
         [Display(Name = "存放倉庫")]
         public WareHouse WareHouse { get; set; }
-        
+        public ICollection<SNnumber> SNnumber { get; set; }//作為被連結端關聯至SNnumber
     }
 }

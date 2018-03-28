@@ -17,6 +17,7 @@ namespace Inventory_System.Data
         public DbSet<BatchNumber> BatchNumbers { get; set; }
         public DbSet<ManuFactor> ManuFactors { get; set; }
         public DbSet<WareHouse> WareHouses { get; set; }
+        public DbSet<SNnumber> SNnumbers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace Inventory_System.Data
             modelBuilder.Entity<BatchNumber>().ToTable("BatchNumber");
             modelBuilder.Entity<ManuFactor>().ToTable("ManuFactory");
             modelBuilder.Entity<WareHouse>().ToTable("WareHouse");
+            modelBuilder.Entity<SNnumber>().ToTable("SNnumber");
         }
 
     }

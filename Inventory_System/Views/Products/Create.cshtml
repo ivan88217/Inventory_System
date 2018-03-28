@@ -18,25 +18,31 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryID" class="control-label"></label>
+                <label asp-for="Category" class="control-label"></label>
                 <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ManuFactorID" class="control-label"></label>
-                <select asp-for="ManuFactorID" class ="form-control" asp-items="ViewBag.ManuFactorID"></select>
+                <label asp-for="ManuFactor" class="control-label"></label>
+                <select asp-for="ManuFactorID" class="form-control" asp-items="ViewBag.ManuFactorID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="BatchNumberID" class="control-label"></label>
-                <select asp-for="BatchNumberID" class ="form-control" asp-items="ViewBag.BatchNumberID"></select>
+                <label asp-for="BatchNumber" class="control-label"></label>
+                <select asp-for="BatchNumberID" class="form-control" asp-items="ViewBag.BatchNumberID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PartNumber" class="control-label"></label>
                 <input asp-for="PartNumber" class="form-control" />
                 <span asp-validation-for="PartNumber" class="text-danger"></span>
+                <input type="checkbox" name="chk" value="1" />
             </div>
             <div class="form-group">
-                <label asp-for="WareHouseID" class="control-label"></label>
-                <select asp-for="WareHouseID" class ="form-control" asp-items="ViewBag.WareHouseID"></select>
+                <label asp-for="WareHouse" class="control-label"></label>
+                <select asp-for="WareHouseID" class="form-control" asp-items="ViewBag.WareHouseID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalNumber" class="control-label"></label>
+                <input asp-for="TotalNumber" class="form-control" />
+                <span asp-validation-for="TotalNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
